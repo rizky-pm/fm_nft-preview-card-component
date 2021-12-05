@@ -1,6 +1,7 @@
 :root {
     --color-soft-blue: hsl(215, 51%, 70%);
     --color-cyan: hsl(178, 100%, 50%);
+    --color-transparent-cyan: rgba(0, 255, 247, 0.5);
     --color-very-dark-blue-main-bg: hsl(217, 54%, 11%); /* Main Background */
     --color-very-dark-blue-card-bg: hsl(216, 50%, 16%); /* Card Background */
     --color-very-dark-blue-line: hsl(215, 32%, 27%); /* Line */
@@ -67,9 +68,40 @@ body {
     }
 }
 
-.card-img {
+.img-container {
     width: 100%;
-    border-radius: 10px;
+    position: relative;
+}
+
+.img-image {
+    display: block;
+    width: 100%;
+    border-radius: 0.625rem;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-transparent-cyan);
+    border-radius: 0.625rem;
+    opacity: 0;
+    transition: opacity 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-overlay:hover {
+    opacity: 1;
+}
+
+h2:hover {
+    cursor: pointer;
+    color: var(--color-cyan);
+    transition: all 0.2s ease;
 }
 
 p {
@@ -129,6 +161,12 @@ hr {
 
 span {
     color: var(--color-white);
+}
+
+span:hover {
+    color: var(--color-cyan);
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .attribution {
